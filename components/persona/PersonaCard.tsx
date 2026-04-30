@@ -25,11 +25,27 @@ const ACTIVE_COLORS: Record<Persona, string> = {
   leo: 'border-amber-500 ring-2 ring-amber-300',
 }
 
-interface PersonaCardProps {
-  id: Persona
+const BADGE_COLORS: Record<Persona, string> = {
+  noor: 'bg-blue-100 text-blue-800 border-blue-200',
+  daniel: 'bg-violet-100 text-violet-800 border-violet-200',
+  aisha: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+  leo: 'bg-amber-100 text-amber-800 border-amber-200',
 }
 
-export function PersonaCard({ id }: PersonaCardProps) {
+
+const SECTION_LABEL: Record<Persona, string> = {
+  noor: 'text-blue-700',
+  daniel: 'text-violet-700',
+  aisha: 'text-emerald-700',
+  leo: 'text-amber-700',
+}
+
+interface PersonaCardProps {
+  id: Persona
+  variant?: 'simple' | 'detailed'
+}
+
+export function PersonaCard({ id, variant = 'simple' }: PersonaCardProps) {
   const { persona, setPersona } = usePersona()
   const config = PERSONAS[id]
   const isActive = persona === id
@@ -47,8 +63,9 @@ export function PersonaCard({ id }: PersonaCardProps) {
         isActive && ACTIVE_COLORS[id]
       )}
     >
+      {/* Header — shared by both variants */}
       <div className="flex items-start gap-3">
-        <span className="text-3xl" aria-hidden="true">
+        <span className="text-3xl shrink-0" aria-hidden="true">
           {PERSONA_ICONS[id]}
         </span>
         <div className="flex-1 min-w-0">
@@ -63,17 +80,73 @@ export function PersonaCard({ id }: PersonaCardProps) {
             )}
           </div>
           <div className="flex items-center gap-1.5 mt-0.5">
-            <p className="text-xs font-medium text-muted-foreground">
-              {config.meta.name}
-            </p>
+            <p className="text-xs font-medium text-muted-foreground">{config.meta.name}</p>
             <span className="text-xs text-muted-foreground opacity-50" aria-hidden="true">·</span>
             <span className="text-xs text-muted-foreground">Age {config.meta.age}</span>
           </div>
-          <p className="text-sm text-foreground/80 mt-2 leading-snug">
-            {config.meta.description}
-          </p>
         </div>
       </div>
+
+      {/* Simple variant */}
+      {variant === 'simple' && (
+        <p className="mt-3 text-sm text-foreground/80 leading-snug">
+          {config.meta.description}
+        </p>
+      )}
+
+      {/* Detailed variant */}
+      {variant === 'detailed' && (
+        <>
+          <p className="mt-3 text-sm text-foreground/70 leading-relaxed italic">
+            {config.meta.background}
+          </p>
+
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <div>
+              <p className={cn('text-xs font-semibold uppercase tracking-wide mb-1.5', SECTION_LABEL[id])}>
+                Goals
+              </p>
+              <ul className="space-y-1">
+                {config.meta.goals.map((g) => (
+                  <li key={g} className="flex items-start gap-1.5 text-xs text-foreground/80">
+                    <span className="mt-0.5 shrink-0 text-green-500" aria-hidden="true">✓</span>
+                    {g}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className={cn('text-xs font-semibold uppercase tracking-wide mb-1.5', SECTION_LABEL[id])}>
+                Challenges
+              </p>
+              <ul className="space-y-1">
+                {config.meta.challenges.map((c) => (
+                  <li key={c} className="flex items-start gap-1.5 text-xs text-foreground/80">
+                    <span className="mt-0.5 shrink-0 text-destructive" aria-hidden="true">✕</span>
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <p className={cn('text-xs font-semibold uppercase tracking-wide mb-1.5', SECTION_LABEL[id])}>
+              Accessibility Features
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {config.meta.features.map((f) => (
+                <span
+                  key={f}
+                  className={cn('text-xs px-2 py-0.5 rounded-full border font-medium', BADGE_COLORS[id])}
+                >
+                  {f}
+                </span>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </button>
   )
 }

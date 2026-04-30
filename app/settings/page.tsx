@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowLeftIcon, RotateCcwIcon, Trash2Icon, CheckCircle2Icon } from 'lucide-react'
+import { ArrowLeftIcon, RotateCcwIcon, Trash2Icon } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
@@ -20,8 +20,6 @@ const PERSONAS: Persona[] = ['noor', 'daniel', 'aisha', 'leo']
 export default function SettingsPage() {
   const t = useText()
   const {
-    persona,
-    config,
     fontScale,
     setFontScale,
     highContrast,
@@ -67,47 +65,8 @@ export default function SettingsPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {PERSONAS.map((id) => (
-              <PersonaCard key={id} id={id} />
+              <PersonaCard key={id} id={id} variant="detailed" />
             ))}
-          </div>
-        </section>
-
-        {/* Active features for current persona */}
-        <section aria-labelledby="active-features-heading" className="space-y-4">
-          <div>
-            <h2 id="active-features-heading" className="text-base font-semibold text-foreground">
-              {t({ default: 'Active accessibility features', simple: 'What is turned on' })}
-            </h2>
-            <p className="text-xs text-muted-foreground mt-1">
-              {t({
-                default: `Features enabled for ${config.meta.fullName} (${config.meta.impairment})`,
-                simple: `What is on for ${config.meta.name}`,
-              })}
-            </p>
-          </div>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2" role="list">
-            {config.meta.features.map((f) => (
-              <li key={f} className="flex items-center gap-2.5 rounded-lg bg-muted/50 px-3 py-2.5 text-sm">
-                <CheckCircle2Icon className="size-4 text-primary shrink-0" aria-hidden="true" />
-                <span className="text-foreground">{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="space-y-1.5">
-            <p className="text-xs font-medium text-muted-foreground">WCAG 2.1 guidelines covered:</p>
-            <div className="flex flex-wrap gap-1.5">
-              {config.meta.wcagDetails.map((w) => (
-                <span
-                  key={w.code}
-                  title={w.description}
-                  className="text-xs bg-muted border border-border px-2 py-0.5 rounded font-mono text-muted-foreground"
-                >
-                  {w.code} – {w.title}
-                </span>
-              ))}
-            </div>
           </div>
         </section>
 
