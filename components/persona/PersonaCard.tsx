@@ -56,7 +56,7 @@ export function PersonaCard({ id, variant = 'simple' }: PersonaCardProps) {
       aria-pressed={isActive}
       aria-label={`Select ${config.meta.name} persona (${config.meta.impairment})`}
       className={cn(
-        'w-full text-left rounded-xl border-2 bg-gradient-to-b p-5',
+        'w-full h-full flex flex-col text-left rounded-xl border-2 bg-gradient-to-b p-5',
         'transition-all duration-150',
         'focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring',
         PERSONA_COLORS[id],
