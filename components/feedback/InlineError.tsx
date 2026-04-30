@@ -25,7 +25,7 @@ export function InlineError({ id, message, suggestion, className }: InlineErrorP
       </div>
       {suggestion && (
         <div className="flex items-start gap-2 text-muted-foreground pl-6">
-          <LightbulbIcon className="size-3.5 shrink-0 mt-0.5 text-amber-500" aria-hidden="true" />
+          <LightbulbIcon className="size-3.5 shrink-0 mt-0.5 text-primary" aria-hidden="true" />
           <span>Try this: {suggestion}</span>
         </div>
       )}

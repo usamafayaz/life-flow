@@ -107,7 +107,7 @@
 [data-persona="noor"] {
   --target-size: 64px;
   --font-size-base: 1.125rem;
-  --element-spacing: 1.5rem;
+  --element-spacing: 2rem;
   --ring-width: 3px;
   --radius: 0.75rem;
 }
@@ -115,17 +115,17 @@
 /* ─── Daniel — Visual Impairment ─────────────────────────────── */
 [data-persona="daniel"] {
   --target-size: 48px;
-  --font-size-base: 1.25rem;
+  --font-size-base: 1.375rem;
   --ring-width: 4px;
-  --font-weight-base: 500;
-  --font-weight-heading: 700;
+  --font-weight-base: 600;
+  --font-weight-heading: 800;
   --foreground: oklch(0.06 0 0);
   --card-foreground: oklch(0.06 0 0);
   --primary: oklch(0.3 0.18 265);
   --primary-foreground: oklch(1 0 0);
   --ring: oklch(0.06 0 0);
-  --border: oklch(0.06 0 0 / 35%);
-  --muted-foreground: oklch(0.32 0 0);
+  --border: oklch(0.06 0 0 / 45%);
+  --muted-foreground: oklch(0.28 0 0);
 }
 
 [data-persona="daniel"][data-high-contrast="true"] {
@@ -148,14 +148,15 @@
 /* ─── Leo — Cognitive Impairment ─────────────────────────────── */
 [data-persona="leo"] {
   --font-family-persona: var(--font-lexend, 'Lexend', sans-serif);
-  --letter-spacing-base: 0.03em;
-  --line-height-base: 1.7;
-  --max-content-width: 60ch;
-  --radius: 1rem;
+  --letter-spacing-base: 0.04em;
+  --line-height-base: 1.85;
+  --max-content-width: 58ch;
+  --radius: 1.25rem;
   --target-size: 48px;
-  --background: oklch(0.985 0.005 75);
-  --card: oklch(0.985 0.005 75);
-  --muted: oklch(0.96 0.005 75);
+  --background: oklch(0.975 0.02 80);
+  --card: oklch(0.98 0.015 80);
+  --muted: oklch(0.955 0.015 80);
+  --border: oklch(0.85 0.02 80);
   --primary: oklch(0.45 0.12 245);
   --primary-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.12 30);

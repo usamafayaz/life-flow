@@ -224,8 +224,8 @@ export function StepRunner({ task }: StepRunnerProps) {
           </p>
 
           {currentStep.tip && (
-            <div className="flex items-start gap-2.5 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-900">
-              <LightbulbIcon className="size-4 shrink-0 mt-0.5 text-amber-500" aria-hidden="true" />
+            <div className="flex items-start gap-2.5 rounded-lg bg-primary/5 border border-primary/20 px-4 py-3 text-sm text-foreground/80">
+              <LightbulbIcon className="size-4 shrink-0 mt-0.5 text-primary" aria-hidden="true" />
               <div>
                 <span className="font-medium">Tip: </span>
                 {currentStep.tip}
