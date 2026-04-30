@@ -96,7 +96,7 @@ export default function TaskDetailPage({ params }: TaskDetailPageProps) {
         )}
 
         {/* Start CTA */}
-        <div className="sticky bottom-20 sm:bottom-4 pt-2">
+        <div className="sm:sticky sm:bottom-4 pt-2">
           <Button
             render={<Link href={`/tasks/${task.id}/run`} />}
             className="target-size w-full sm:w-auto gap-2 justify-center"

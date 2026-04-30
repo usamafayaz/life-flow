@@ -20,7 +20,7 @@ export function AppShell({ children, className }: AppShellProps) {
       <main
         id="main-content"
         tabIndex={-1}
-        className={cn('flex-1 outline-none pb-16 sm:pb-0', className)}
+        className={cn('flex-1 outline-none pb-24 sm:pb-0', className)}
       >
         {children}
       </main>
@@ -30,26 +30,26 @@ export function AppShell({ children, className }: AppShellProps) {
         aria-label="Mobile navigation"
         className="sm:hidden fixed bottom-0 left-0 right-0 z-40 border-t bg-background/95 backdrop-blur-sm"
       >
-        <div className="flex items-stretch justify-around">
+        <div className="flex items-stretch justify-around py-1">
           <Link
             href="/"
-            className="target-size flex flex-col items-center justify-center gap-0.5 flex-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
+            className="flex flex-col items-center justify-center gap-1 flex-1 min-h-12 px-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
           >
-            <HomeIcon className="size-5" aria-hidden="true" />
+            <HomeIcon className="size-5 shrink-0" aria-hidden="true" />
             <span>Home</span>
           </Link>
           <Link
             href="/tasks"
-            className="target-size flex flex-col items-center justify-center gap-0.5 flex-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
+            className="flex flex-col items-center justify-center gap-1 flex-1 min-h-12 px-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
           >
-            <ListIcon className="size-5" aria-hidden="true" />
+            <ListIcon className="size-5 shrink-0" aria-hidden="true" />
             <span>Tasks</span>
           </Link>
           <Link
             href="/settings"
-            className="target-size flex flex-col items-center justify-center gap-0.5 flex-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
+            className="flex flex-col items-center justify-center gap-1 flex-1 min-h-12 px-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
           >
-            <SettingsIcon className="size-5" aria-hidden="true" />
+            <SettingsIcon className="size-5 shrink-0" aria-hidden="true" />
             <span>Settings</span>
           </Link>
         </div>

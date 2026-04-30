@@ -15,10 +15,10 @@ export function Header() {
       <div className="mx-auto max-w-screen-xl px-4 h-14 flex items-center gap-4">
         <Link
           href="/"
-          className="flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring rounded"
+          className="flex items-center gap-2 font-semibold text-base text-foreground hover:text-primary transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring rounded shrink-0"
           aria-label="LifeFlow home"
         >
-          <ActivityIcon className="size-5 text-primary" aria-hidden="true" />
+          <ActivityIcon className="size-5 text-primary shrink-0" aria-hidden="true" />
           <span>LifeFlow</span>
         </Link>
 
@@ -48,7 +48,7 @@ export function Header() {
             )}
           >
             <SettingsIcon className="size-4" aria-hidden="true" />
-            <span className={flags.iconsAlwaysLabeled ? '' : 'sr-only'}>Settings</span>
+            <span className={flags.iconsAlwaysLabeled ? 'hidden sm:inline' : 'sr-only'}>Settings</span>
           </Link>
         </div>
       </div>
