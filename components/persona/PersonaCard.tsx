@@ -79,11 +79,6 @@ export function PersonaCard({ id, variant = 'simple' }: PersonaCardProps) {
               </span>
             )}
           </div>
-          <div className="flex items-center gap-1.5 mt-0.5">
-            <p className="text-xs font-medium text-muted-foreground">{config.meta.name}</p>
-            <span className="text-xs text-muted-foreground opacity-50" aria-hidden="true">·</span>
-            <span className="text-xs text-muted-foreground">Age {config.meta.age}</span>
-          </div>
         </div>
       </div>
 
