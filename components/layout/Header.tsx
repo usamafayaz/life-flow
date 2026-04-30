@@ -43,12 +43,12 @@ export function Header() {
             href="/settings"
             aria-label="Settings"
             className={cn(
-              'target-size inline-flex items-center rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring',
+              'hidden sm:inline-flex target-size items-center rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring',
               flags.iconsAlwaysLabeled ? 'gap-1.5 px-3 text-sm font-medium' : 'justify-center'
             )}
           >
             <SettingsIcon className="size-4" aria-hidden="true" />
-            <span className={flags.iconsAlwaysLabeled ? 'hidden sm:inline' : 'sr-only'}>Settings</span>
+            <span className={flags.iconsAlwaysLabeled ? '' : 'sr-only'}>Settings</span>
           </Link>
         </div>
       </div>

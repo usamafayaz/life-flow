@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { HomeIcon, ListIcon, SettingsIcon } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
-import { PersonaBanner } from '@/components/persona/PersonaBanner'
 import { cn } from '@/lib/utils'
 
 interface AppShellProps {
@@ -16,7 +15,6 @@ export function AppShell({ children, className }: AppShellProps) {
   return (
     <>
       <Header />
-      {/* <PersonaBanner /> */}
       <main
         id="main-content"
         tabIndex={-1}
