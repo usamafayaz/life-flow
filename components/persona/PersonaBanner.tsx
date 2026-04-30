@@ -1,5 +1,6 @@
 'use client'
 
+import { MinusIcon, PlusIcon } from 'lucide-react'
 import { usePersona } from '@/hooks/use-persona'
 import { PERSONAS, type Persona } from '@/lib/personas'
 
@@ -32,7 +33,7 @@ const TEXT_COLORS: Record<Persona, string> = {
 }
 
 export function PersonaBanner() {
-  const { persona } = usePersona()
+  const { persona, flags, fontScale, setFontScale } = usePersona()
   const config = PERSONAS[persona]
 
   return (
@@ -62,6 +63,35 @@ export function PersonaBanner() {
             </span>
           )}
         </div>
+
+        {/* Text scale controls for Daniel on mobile (desktop shows these in the header QuickBar) */}
+        {flags.largeTextControl && (
+          <div
+            className={`sm:hidden ml-auto flex items-center gap-1 ${TEXT_COLORS[persona]}`}
+            role="group"
+            aria-label="Text size"
+          >
+            <button
+              onClick={() => setFontScale(Math.max(100, fontScale - 10))}
+              disabled={fontScale <= 100}
+              aria-label="Decrease text size"
+              className="target-size inline-flex items-center justify-center rounded-md hover:bg-black/10 disabled:opacity-40 transition-colors"
+            >
+              <MinusIcon className="size-4" aria-hidden="true" />
+            </button>
+            <span className="text-xs font-medium tabular-nums inline-block w-10 text-center" aria-live="polite" aria-atomic="true">
+              {fontScale}%
+            </span>
+            <button
+              onClick={() => setFontScale(Math.min(200, fontScale + 10))}
+              disabled={fontScale >= 200}
+              aria-label="Increase text size"
+              className="target-size inline-flex items-center justify-center rounded-md hover:bg-black/10 disabled:opacity-40 transition-colors"
+            >
+              <PlusIcon className="size-4" aria-hidden="true" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

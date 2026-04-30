@@ -27,7 +27,7 @@ export function TaskCard({ task, className }: TaskCardProps) {
     <Link
       href={`/tasks/${task.id}`}
       className={cn(
-        'block rounded-xl border bg-card p-5 transition-all',
+        'block rounded-xl border bg-card p-5 transition-all min-h-[var(--target-size)]',
         'hover:border-primary/50 hover:shadow-sm',
         'focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring',
         isCompleted && 'border-success/40',

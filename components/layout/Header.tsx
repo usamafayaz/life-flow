@@ -28,7 +28,7 @@ export function Header() {
         >
           <Link
             href="/tasks"
-            className="text-sm text-muted-foreground hover:text-foreground px-3 py-1.5 rounded-lg hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
+            className="target-size inline-flex items-center text-sm text-muted-foreground hover:text-foreground px-3 rounded-lg hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
           >
             Tasks
           </Link>
