@@ -63,7 +63,7 @@ export function PersonaSwitcher({ className, compact = false }: PersonaSwitcherP
             data-persona-btn={id}
             role="radio"
             aria-checked={isActive}
-            aria-label={`${config.meta.name}, ${config.meta.impairment}`}
+            aria-label={config.meta.impairment}
             onClick={() => setPersona(id)}
             onKeyDown={(e) => handleKeyDown(e, id)}
             tabIndex={isActive ? 0 : -1}
@@ -85,7 +85,7 @@ export function PersonaSwitcher({ className, compact = false }: PersonaSwitcherP
               {PERSONA_ICONS[id]}
             </span>
             {!compact && (
-              <span>{config.meta.name}</span>
+              <span>{config.meta.impairment}</span>
             )}
           </button>
         )

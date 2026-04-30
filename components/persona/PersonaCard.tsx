@@ -54,7 +54,7 @@ export function PersonaCard({ id, variant = 'simple' }: PersonaCardProps) {
     <button
       onClick={() => setPersona(id)}
       aria-pressed={isActive}
-      aria-label={`Select ${config.meta.name} persona (${config.meta.impairment})`}
+      aria-label={`Select ${config.meta.impairment} profile`}
       className={cn(
         'w-full h-full flex flex-col text-left rounded-xl border-2 bg-gradient-to-b p-5',
         'transition-all duration-150',
@@ -92,38 +92,9 @@ export function PersonaCard({ id, variant = 'simple' }: PersonaCardProps) {
       {/* Detailed variant */}
       {variant === 'detailed' && (
         <>
-          <p className="mt-3 text-sm text-foreground/70 leading-relaxed italic">
+          {/* <p className="mt-3 text-sm text-foreground/70 leading-relaxed italic">
             {config.meta.background}
-          </p>
-
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <div>
-              <p className={cn('text-xs font-semibold uppercase tracking-wide mb-1.5', SECTION_LABEL[id])}>
-                Goals
-              </p>
-              <ul className="space-y-1">
-                {config.meta.goals.map((g) => (
-                  <li key={g} className="flex items-start gap-1.5 text-xs text-foreground/80">
-                    <span className="mt-0.5 shrink-0 text-green-500" aria-hidden="true">✓</span>
-                    {g}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className={cn('text-xs font-semibold uppercase tracking-wide mb-1.5', SECTION_LABEL[id])}>
-                Challenges
-              </p>
-              <ul className="space-y-1">
-                {config.meta.challenges.map((c) => (
-                  <li key={c} className="flex items-start gap-1.5 text-xs text-foreground/80">
-                    <span className="mt-0.5 shrink-0 text-destructive" aria-hidden="true">✕</span>
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </p> */}
 
           <div className="mt-4">
             <p className={cn('text-xs font-semibold uppercase tracking-wide mb-1.5', SECTION_LABEL[id])}>

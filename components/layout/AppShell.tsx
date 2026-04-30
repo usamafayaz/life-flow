@@ -16,7 +16,7 @@ export function AppShell({ children, className }: AppShellProps) {
   return (
     <>
       <Header />
-      <PersonaBanner />
+      {/* <PersonaBanner /> */}
       <main
         id="main-content"
         tabIndex={-1}
