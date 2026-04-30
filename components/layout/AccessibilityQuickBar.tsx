@@ -13,7 +13,7 @@ export function AccessibilityQuickBar() {
     <div
       role="toolbar"
       aria-label="Accessibility quick controls"
-      className="hidden sm:flex items-center gap-2"
+      className="flex items-center gap-2"
     >
       <div className="flex items-center gap-1" role="group" aria-label="Text size">
         <Button

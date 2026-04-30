@@ -51,6 +51,7 @@ interface TaskState {
   abandonTask: () => void
   getAllTasks: () => TaskTemplate[]
   getTaskById: (id: string) => TaskTemplate | undefined
+  uncompleteTask: (taskId: string) => void
   clearHistory: () => void
 }
 
@@ -99,6 +100,16 @@ export const useTaskStore = create<TaskState>()(
         })),
 
       abandonTask: () => set({ inProgress: null }),
+
+      uncompleteTask: (taskId) => {
+        const todayStart = new Date()
+        todayStart.setHours(0, 0, 0, 0)
+        set((s) => ({
+          completionHistory: s.completionHistory.filter(
+            (c) => !(c.taskId === taskId && c.completedAt >= todayStart.getTime())
+          ),
+        }))
+      },
 
       getAllTasks: () => {
         const { customTasks } = get()

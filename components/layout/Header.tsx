@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { SettingsIcon, ActivityIcon } from 'lucide-react'
+import { SettingsIcon, HeartIcon } from 'lucide-react'
 import { PersonaSwitcher } from '@/components/persona/PersonaSwitcher'
 import { AccessibilityQuickBar } from '@/components/layout/AccessibilityQuickBar'
 import { usePersona } from '@/hooks/use-persona'
@@ -11,14 +11,16 @@ export function Header() {
   const { flags } = usePersona()
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur-sm">
+    <header className="md:hidden sticky top-0 z-40 border-b bg-background/95 backdrop-blur-sm">
       <div className="mx-auto max-w-screen-xl px-4 h-14 flex items-center gap-4">
         <Link
           href="/"
           className="flex items-center gap-2 font-semibold text-base text-foreground hover:text-primary transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring rounded shrink-0"
           aria-label="LifeFlow home"
         >
-          <ActivityIcon className="size-5 text-primary shrink-0" aria-hidden="true" />
+          <div className="size-[28px] bg-primary rounded-[8px] flex items-center justify-center shrink-0">
+            <HeartIcon className="size-[14px] text-primary-foreground" aria-hidden="true" />
+          </div>
           <span>LifeFlow</span>
         </Link>
 
