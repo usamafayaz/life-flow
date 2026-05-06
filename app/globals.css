@@ -89,47 +89,23 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
 
-  /* persona tokens */
-  --target-size: 44px;
-  --font-size-base: 1rem;
-  --font-family-persona: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
-  --line-height-base: 1.5;
-  --letter-spacing-base: 0;
-  --max-content-width: 72ch;
-  --element-spacing: 1rem;
-  --ring-width: 2px;
+  /* universal accessibility tokens */
+  --target-size: 52px;
+  --font-size-base: 1.0625rem;
+  --font-family-persona: var(--font-lexend, 'Lexend', sans-serif);
+  --line-height-base: 1.7;
+  --letter-spacing-base: 0.03em;
+  --max-content-width: 65ch;
+  --element-spacing: 1.25rem;
+  --ring-width: 3px;
+  --radius: 0.75rem;
   --font-weight-base: 400;
   --font-weight-heading: 600;
   --font-scale: 1;
 }
 
-/* ─── Noor — Physical Impairment ─────────────────────────────── */
-[data-persona="noor"] {
-  --target-size: 64px;
-  --font-size-base: 1.125rem;
-  --element-spacing: 2rem;
-  --ring-width: 3px;
-  --radius: 0.75rem;
-}
-
-/* ─── Daniel — Visual Impairment ─────────────────────────────── */
-[data-persona="daniel"] {
-  --target-size: 48px;
-  --font-size-base: 1.375rem;
-  --ring-width: 4px;
-  --font-weight-base: 600;
-  --font-weight-heading: 800;
-  --foreground: oklch(0.06 0 0);
-  --card-foreground: oklch(0.06 0 0);
-  --primary: oklch(0.3 0.18 265);
-  --primary-foreground: oklch(1 0 0);
-  --ring: oklch(0.06 0 0);
-  --border: oklch(0.35 0 0);
-  --input: oklch(0.35 0 0);
-  --muted-foreground: oklch(0.28 0 0);
-}
-
-[data-persona="daniel"][data-high-contrast="true"] {
+/* ─── High contrast mode ─────────────────────────────────────── */
+[data-high-contrast="true"] {
   --foreground: oklch(0 0 0);
   --card-foreground: oklch(0 0 0);
   --primary: oklch(0.22 0.2 265);
@@ -141,35 +117,6 @@
   --muted: oklch(0.93 0 0);
 }
 
-/* ─── Aisha — Auditory Impairment ────────────────────────────── */
-[data-persona="aisha"] {
-  --success: oklch(0.45 0.18 142);
-  --destructive: oklch(0.5 0.25 27);
-}
-
-/* ─── Leo — Cognitive Impairment ─────────────────────────────── */
-[data-persona="leo"] {
-  --font-family-persona: var(--font-lexend, 'Lexend', sans-serif);
-  --letter-spacing-base: 0.04em;
-  --line-height-base: 1.85;
-  --max-content-width: 58ch;
-  --radius: 1.25rem;
-  --target-size: 48px;
-  --background: oklch(0.975 0.02 80);
-  --card: oklch(0.98 0.015 80);
-  --muted: oklch(0.955 0.015 80);
-  --border: oklch(0.85 0.02 80);
-  --primary: oklch(0.45 0.12 245);
-  --primary-foreground: oklch(1 0 0);
-  --destructive: oklch(0.55 0.12 30);
-  --destructive-foreground: oklch(1 0 0);
-}
-
-/* ─── Sidebar ────────────────────────────────────────────────── */
-[data-persona="leo"] aside[data-sidebar] {
-  background-color: oklch(1 0 0);
-}
-
 /* ─── Reduce motion ──────────────────────────────────────────── */
 [data-reduce-motion="true"] * {
   animation-duration: 0.01ms !important;
@@ -178,7 +125,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-persona="noor"] * {
+  * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -214,7 +161,7 @@
     border-radius: 2px;
   }
 
-  [data-persona="daniel"] :is(nav[aria-label="Breadcrumb"], p) a {
+  p a {
     text-decoration: underline;
   }
 }
