@@ -5,9 +5,7 @@ import { Button } from '@/components/ui/button'
 import { usePersona } from '@/hooks/use-persona'
 
 export function AccessibilityQuickBar() {
-  const { flags, fontScale, setFontScale } = usePersona()
-
-  if (!flags.largeTextControl) return null
+  const { fontScale, setFontScale } = usePersona()
 
   return (
     <div

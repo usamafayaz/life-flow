@@ -2,17 +2,13 @@
 
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { type Persona, defaultPersona } from '@/lib/personas'
 
-interface PersonaState {
-  persona: Persona
+interface AccessibilityState {
   fontScale: number
   highContrast: boolean
   reducedMotion: boolean
   focusMode: boolean
   onboarded: boolean
-  _hasHydrated: boolean
-  setPersona: (persona: Persona) => void
   setFontScale: (scale: number) => void
   setHighContrast: (hc: boolean) => void
   setReducedMotion: (rm: boolean) => void
@@ -21,17 +17,14 @@ interface PersonaState {
   resetToDefaults: () => void
 }
 
-export const usePersonaStore = create<PersonaState>()(
+export const usePersonaStore = create<AccessibilityState>()(
   persist(
     (set) => ({
-      persona: defaultPersona,
       fontScale: 100,
       highContrast: false,
       reducedMotion: false,
       focusMode: false,
       onboarded: false,
-      _hasHydrated: false,
-      setPersona: (persona) => set({ persona }),
       setFontScale: (fontScale) => set({ fontScale }),
       setHighContrast: (highContrast) => set({ highContrast }),
       setReducedMotion: (reducedMotion) => set({ reducedMotion }),
@@ -47,10 +40,21 @@ export const usePersonaStore = create<PersonaState>()(
     }),
     {
       name: 'lifeflow-persona',
-      onRehydrateStorage: () => (_state, error) => {
-        if (!error) {
-          usePersonaStore.setState({ _hasHydrated: true })
+      version: 2,
+      migrate: (persisted: unknown, version: number) => {
+        if (!persisted || typeof persisted !== 'object') return {}
+        const s = persisted as Partial<AccessibilityState>
+        if (version < 2) {
+          // Reset onboarded so existing users see the new universal-accessibility onboarding.
+          return {
+            fontScale: s.fontScale ?? 100,
+            highContrast: s.highContrast ?? false,
+            reducedMotion: s.reducedMotion ?? false,
+            focusMode: s.focusMode ?? false,
+            onboarded: false,
+          }
         }
+        return persisted
       },
     }
   )

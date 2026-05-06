@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { HeartIcon, HomeIcon, ListChecksIcon, TimerIcon, SettingsIcon } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
-import { PersonaSwitcher } from '@/components/persona/PersonaSwitcher'
-import { AccessibilityQuickBar } from '@/components/layout/AccessibilityQuickBar'
 import { cn } from '@/lib/utils'
 
 const SIDEBAR_NAV = [
@@ -76,11 +74,6 @@ export function AppShell({ children, className }: AppShellProps) {
             })}
           </nav>
 
-          {/* Bottom: accessibility controls + persona switcher */}
-          <div className="border-t pt-3 space-y-2">
-            <AccessibilityQuickBar />
-            <PersonaSwitcher compact />
-          </div>
         </div>
       </aside>
 
