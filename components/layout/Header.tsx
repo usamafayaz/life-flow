@@ -2,14 +2,7 @@
 
 import Link from 'next/link'
 import { SettingsIcon, HeartIcon } from 'lucide-react'
-import { PersonaSwitcher } from '@/components/persona/PersonaSwitcher'
-import { AccessibilityQuickBar } from '@/components/layout/AccessibilityQuickBar'
-import { usePersona } from '@/hooks/use-persona'
-import { cn } from '@/lib/utils'
-
 export function Header() {
-  const { flags } = usePersona()
-
   return (
     <header className="md:hidden sticky top-0 z-40 border-b bg-background/95 backdrop-blur-sm">
       <div className="mx-auto max-w-screen-xl px-4 h-14 flex items-center gap-4">
@@ -24,10 +17,7 @@ export function Header() {
           <span>LifeFlow</span>
         </Link>
 
-        <nav
-          aria-label="Main navigation"
-          className={cn('hidden sm:flex items-center gap-1', flags.minimalLayout && 'hidden')}
-        >
+        <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1">
           <Link
             href="/tasks"
             className="target-size inline-flex items-center text-sm text-muted-foreground hover:text-foreground px-3 rounded-lg hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
@@ -37,20 +27,13 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <AccessibilityQuickBar />
-
-          <PersonaSwitcher compact />
-
           <Link
             href="/settings"
             aria-label="Settings"
-            className={cn(
-              'hidden sm:inline-flex target-size items-center rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring',
-              flags.iconsAlwaysLabeled ? 'gap-1.5 px-3 text-sm font-medium' : 'justify-center'
-            )}
+            className="hidden sm:inline-flex target-size gap-1.5 px-3 items-center rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring"
           >
             <SettingsIcon className="size-4" aria-hidden="true" />
-            <span className={flags.iconsAlwaysLabeled ? '' : 'sr-only'}>Settings</span>
+            <span>Settings</span>
           </Link>
         </div>
       </div>

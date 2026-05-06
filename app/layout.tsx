@@ -30,14 +30,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-persona="aisha"
       className={`${inter.variable} ${lexend.variable} h-full`}
       suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var s=JSON.parse(localStorage.getItem('lifeflow-persona')||'{}');var p=s.state&&s.state.persona;if(p)document.documentElement.setAttribute('data-persona',p);var fc=s.state&&s.state.fontScale;if(fc)document.documentElement.style.setProperty('--font-scale',fc/100);var hc=s.state&&s.state.highContrast;if(hc)document.documentElement.setAttribute('data-high-contrast','true');var rm=s.state&&s.state.reducedMotion;if(rm)document.documentElement.setAttribute('data-reduce-motion','true');}catch(e){}`,
+            __html: `try{var s=JSON.parse(localStorage.getItem('lifeflow-persona')||'{}');var fc=s.state&&s.state.fontScale;if(fc)document.documentElement.style.setProperty('--font-scale',fc/100);var hc=s.state&&s.state.highContrast;if(hc)document.documentElement.setAttribute('data-high-contrast','true');var rm=s.state&&s.state.reducedMotion;if(rm)document.documentElement.setAttribute('data-reduce-motion','true');}catch(e){}`,
           }}
         />
       </head>

@@ -246,7 +246,7 @@ export function StepRunner({ task }: StepRunnerProps) {
             <ChevronLeftIcon className="size-5" aria-hidden="true" />
             <span>{t({ default: 'Previous', simple: 'Back' })}</span>
             {flags.keyboardShortcutsVisible && (
-              <kbd className="ml-1 text-xs opacity-60" aria-hidden="true">←</kbd>
+              <kbd className="ml-1 text-xs opacity-60" aria-hidden="true"></kbd>
             )}
           </Button>
 

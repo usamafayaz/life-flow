@@ -6,7 +6,6 @@ import { PlusIcon, CheckCircle2Icon, CircleIcon, ClockIcon } from 'lucide-react'
 import { AppShell } from '@/components/layout/AppShell'
 import { AddTaskDialog } from '@/components/task/AddTaskDialog'
 import { useText } from '@/hooks/use-text'
-import { usePersona } from '@/hooks/use-persona'
 import { useTaskStore } from '@/store/task-store'
 import { TASK_TEMPLATES } from '@/lib/task-templates'
 import { cn } from '@/lib/utils'
@@ -20,7 +19,6 @@ function getStartOfDay() {
 
 export default function TasksPage() {
   const t = useText()
-  const { flags } = usePersona()
   const { customTasks, completionHistory, startTask, completeTask, uncompleteTask } = useTaskStore()
   const [showAddTask, setShowAddTask] = useState(false)
 
@@ -52,36 +50,6 @@ export default function TasksPage() {
   const handleMarkComplete = (task: TaskTemplate) => {
     startTask(task.id)
     completeTask(task.title, task.steps.length)
-  }
-
-  if (flags.minimalLayout) {
-    return (
-      <AppShell>
-        <div className="px-6 py-8 max-w-2xl">
-          <h1 className="text-2xl font-bold text-foreground mb-6">
-            {t({ default: 'Task Manager', simple: 'Tasks' })}
-          </h1>
-          <div className="space-y-2">
-            {allTasks.map((task) => (
-              <Link
-                key={task.id}
-                href={`/tasks/${task.id}`}
-                className={cn(
-                  'flex items-center gap-3 bg-card rounded-xl border px-4 py-3 transition-colors',
-                  'hover:border-primary/40 focus-visible:outline focus-visible:outline-[var(--ring-width)] focus-visible:outline-ring'
-                )}
-              >
-                <span className="text-sm font-medium text-foreground flex-1">{task.title}</span>
-                <span className="text-xs text-muted-foreground">
-                  {task.steps.length} steps
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-        <AddTaskDialog open={showAddTask} onClose={() => setShowAddTask(false)} />
-      </AppShell>
-    )
   }
 
   return (
